@@ -1,9 +1,23 @@
-<form [formGroup]="form" style="padding: 30px">
+<form *ngIf="form" [formGroup]="form" style="padding: 30px">
 
-  <mat-form-field appearance="fill" style="width: 400px;">
-    <mat-label> Average Age Range </mat-label>
-    <app-min-max-input matInput formControlName="age"></app-min-max-input>
-  </mat-form-field>
+  <ng-container *ngFor="let field of fields" [ngSwitch]="field.type">
+    <mat-form-field  appearance="fill" style="min-width: 400px; margin-right: 15px">
+      <mat-label> {{field.label}}</mat-label>
+
+      <app-min-max-input *ngSwitchCase="'minMax'" [formControlName]="field.key"></app-min-max-input>
+
+      <input *ngSwitchCase="'text'" [formControlName]="field.key" matInput type="text"/>
+
+      <input *ngSwitchCase="'number'" [formControlName]="field.key" matInput type="number"/>
+
+      <mat-select *ngSwitchCase="'select'" [formControlName]="field.key">
+        <mat-option *ngFor="let option of field.options" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+  </ng-container>
 
   <button mat-button color="primary"
           [disabled]="form.invalid"

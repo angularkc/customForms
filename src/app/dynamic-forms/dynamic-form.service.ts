@@ -14,11 +14,13 @@ export class DynamicFormService {
     formFields.forEach(field => {
       formControls[field.key] = this.formControlGenerator(field, data);
     });
+    console.log(formControls);
 
     return this.fb.group(formControls);
   }
 
   formControlGenerator(field: Field, data): FormControl {
+    console.log(field.key);
     return new FormControl(data[field.key], {
       validators: this.mapValidator(field.validators)
     });

@@ -33,13 +33,19 @@ export class AppComponent implements OnInit {
   }];
 
   constructor(private df: DynamicFormService) {
-
+    const data = {
+      name: 'Hero Hotel',
+      employeeCount: 12,
+      demographicAge: {
+        min: 25,
+        max: 67
+      },
+      state: 'KS'
+    };
+    this.form = df.formGroupGenerator(this.fields, data);
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      age: new FormControl({})
-    });
   }
 
   submit() {
