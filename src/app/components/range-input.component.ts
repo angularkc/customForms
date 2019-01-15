@@ -34,8 +34,8 @@ export class RangeInputComponent implements OnInit {
 
   ngOnInit() {
     this.parts = new FormGroup({
-      min: new FormControl(this.value.min),
-      max: new FormControl(this.value.max)
+      min: new FormControl(null),
+      max: new FormControl(null)
     });
   }
 }
