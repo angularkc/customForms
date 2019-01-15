@@ -70,7 +70,5 @@ export class MinMaxInputComponent implements OnDestroy, ControlValueAccessor {
     this._onChange = fn;
   }
 
-  registerOnTouched(fn: any) {
-
-  }
+  registerOnTouched(fn: any) {}
 }
