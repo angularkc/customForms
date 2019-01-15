@@ -10,13 +10,13 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import {RangeInputComponent} from './components/range-input.component';
+import {MinMaxInputComponent} from './components/min-max-input.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RangeInputComponent
+    MinMaxInputComponent
   ],
   imports: [
     BrowserModule,
