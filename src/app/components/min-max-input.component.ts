@@ -1,13 +1,13 @@
 import {
-  Component, Input, OnDestroy,
+  Component, forwardRef, Input, OnDestroy,
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, FormGroup} from '@angular/forms';
+import {ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subscription} from 'rxjs';
 
 class MinMaxModel {
   min?: number;
   max?: number;
-  constructor({min, max}: MinMaxModel = {}) {
+  constructor({min = null, max = null}: MinMaxModel = {}) {
     this.min = min;
     this.max = max;
   }
@@ -31,6 +31,13 @@ class MinMaxModel {
     </div>
   `,
   styleUrls: ['min-max-input.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MinMaxInputComponent),
+      multi: true
+    }
+  ]
 })
 export class MinMaxInputComponent implements OnDestroy, ControlValueAccessor {
   parts: FormGroup;
@@ -42,7 +49,7 @@ export class MinMaxInputComponent implements OnDestroy, ControlValueAccessor {
     return new MinMaxModel(value);
   }
   set value(value: MinMaxModel) {
-    const {min, max} = value ? value : new MinMaxModel();
+    const {min, max} = new MinMaxModel(value);
     this.parts.setValue({ min, max });
   }
 
