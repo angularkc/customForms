@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormGroup, Validators} from '@angular/forms';
 import {Field} from './dynamic-forms/form-field.model';
 import {US_STATES} from './dynamic-forms/geographic.data';
 import {DynamicFormService} from './dynamic-forms/dynamic-form.service';

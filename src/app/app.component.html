@@ -2,7 +2,7 @@
 
   <ng-container *ngFor="let field of fields" [ngSwitch]="field.type">
     <mat-form-field  appearance="fill" style="min-width: 400px; margin-right: 15px">
-      <mat-label> {{field.label}}</mat-label>
+      <mat-label>{{field.label}}</mat-label>
 
       <app-min-max-input *ngSwitchCase="'minMax'" [formControlName]="field.key"></app-min-max-input>
 
@@ -19,9 +19,7 @@
     </mat-form-field>
   </ng-container>
 
-  <button mat-button color="primary"
-          [disabled]="form.invalid"
-          (click)="submit()">
+  <button mat-button color="primary" [disabled]="form.invalid" (click)="submit()">
     Submit
   </button>
 </form>
