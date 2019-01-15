@@ -1,13 +1,15 @@
-<form [formGroup]="form">
-  <!--<mat-form-field>-->
-    <!--<mat-label>Min Age</mat-label>-->
-    <!--<input type="number" formControlName="ageMin" matInput>-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field>-->
-    <!--<mat-label>Max Age</mat-label>-->
-    <!--<input type="number" formControlName="ageMax" matInput>-->
-  <!--</mat-form-field>-->
-  <!--<button mat-button (click)="submit()"></button>-->
+<form [formGroup]="form" style="padding: 30px">
+  <mat-form-field>
+    <mat-label>Min Average Age</mat-label>
+    <input type="number" formControlName="ageMin" matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Max Average Age</mat-label>
+    <input type="number" formControlName="ageMax" matInput>
+  </mat-form-field>
+  <button mat-button color="primary" [disabled]="form.invalid" (click)="submit()">Submit</button>
 </form>
 
-{{formValue | json}}
+<div style="padding: 0 30px">
+  {{formValue | json}}
+</div>

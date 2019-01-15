@@ -3,8 +3,14 @@ import { NgModule } from '@angular/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +20,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
