@@ -11,14 +11,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      ageMin: new FormControl(
-        null,
-        [Validators.min(0), Validators.max(130)]
-      ),
-      ageMax: new FormControl(
-        null,
-        [Validators.min(0), Validators.max(130)]
-      )
+      age: new FormControl({})
     });
   }
 

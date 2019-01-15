@@ -1,12 +1,11 @@
 <form [formGroup]="form" style="padding: 30px">
   <mat-form-field>
-    <mat-label>Min Average Age</mat-label>
-    <input type="number" formControlName="ageMin" matInput>
+    <mat-label>Average Age Range</mat-label>
+    <app-range-input matInput></app-range-input>
   </mat-form-field>
-  <mat-form-field>
-    <mat-label>Max Average Age</mat-label>
-    <input type="number" formControlName="ageMax" matInput>
-  </mat-form-field>
+
+  <app-range-input formControlName="age"></app-range-input>
+
   <button mat-button color="primary"
           [disabled]="form.invalid"
           (click)="submit()">

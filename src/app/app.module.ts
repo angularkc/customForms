@@ -10,11 +10,13 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import {RangeInputComponent} from './components/range-input.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RangeInputComponent
   ],
   imports: [
     BrowserModule,
