@@ -1,6 +1,9 @@
 <form [formGroup]="form" style="padding: 30px">
 
-  <app-min-max-input formControlName="age"></app-min-max-input>
+  <mat-form-field appearance="fill" style="width: 400px;">
+    <mat-label> Average Age Range </mat-label>
+    <app-min-max-input matInput formControlName="age"></app-min-max-input>
+  </mat-form-field>
 
   <button mat-button color="primary"
           [disabled]="form.invalid"
